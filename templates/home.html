@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
+    <h1>
+        Welcome to the Puppy Adoption Site
+    </h1>
+
+</div>
+<!-- Image Section -->
+<div class="text-center mt-4">
+    <img src="{{ url_for('static', filename='img/bharathi-kannan-rfL-thiRzDs-unsplash.jpg') }}" 
+         alt="A cute puppy image" class="img-fluid" onerror="this.onerror=null;this.src='/static/img/default-image.jpg';">
+</div>
+{% endblock %}
