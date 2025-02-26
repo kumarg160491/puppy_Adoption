@@ -11,10 +11,18 @@ EXPOSE 5002
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
+# Install required system dependencies for MySQL client
+RUN apt update && apt install -y \
+    gcc \
+    python3-dev \
+    default-libmysqlclient-dev \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
 # Copy requirements first to leverage Docker caching
 COPY requirements.txt ./
 
-# Install dependencies
+# Install Python dependencies
 RUN python -m pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application
